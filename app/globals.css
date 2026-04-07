@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Design Tokens ─────────────────────────────────────────── */
+:root {
+  --rx-bg:     #080c0a;
+  --rx-s1:     #0e1612;
+  --rx-s2:     #141f18;
+  --rx-border: #1c2e22;
+  --rx-green:  #00e87a;
+  --rx-red:    #ff4d6d;
+  --rx-gold:   #ffc940;
+  --rx-text:   #ddeee5;
+  --rx-muted:  #4d7060;
+}
+
+[data-theme="light"] {
+  --rx-bg:     #f4f7f5;
+  --rx-s1:     #ffffff;
+  --rx-s2:     #edf2ef;
+  --rx-border: #ccddd3;
+  --rx-green:  #007a40;
+  --rx-red:    #cc1f3e;
+  --rx-gold:   #a06500;
+  --rx-text:   #0a150d;
+  --rx-muted:  #5a7a65;
+}
+
+/* ── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  font-family: 'Cairo', 'Segoe UI', system-ui, sans-serif;
+  background: var(--rx-bg);
+  color: var(--rx-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ── Scrollbar ─────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--rx-s1); }
+::-webkit-scrollbar-thumb { background: var(--rx-border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--rx-muted); }
+
+/* ── Utility ───────────────────────────────────────────────── */
+button { user-select: none; -webkit-user-select: none; }
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--rx-green);
+  outline-offset: 2px;
+}
+
+/* ── Animations ────────────────────────────────────────────── */
+@keyframes bk {
+  0%, 80%, 100% { opacity: .2; transform: scale(.8); }
+  40%           { opacity: 1;  transform: scale(1);  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+
+.fade-in { animation: fadeIn 0.25s ease both; }
